@@ -1,0 +1,13 @@
+{
+  "name": "Quoteshot",
+  "description": "Select text anywhere and generate a beautiful quoteshot.",
+  "version": "0.7",
+  "permissions": ["contextMenus"],
+  "background": {
+    "persistent": false,
+    "scripts": ["quoteshot.js"]
+  },
+  "manifest_version": 2
+}
+
+
