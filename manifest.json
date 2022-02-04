@@ -1,13 +1,24 @@
 {
-  "name": "Quoteshot",
-  "description": "Select text anywhere and generate a beautiful quoteshot.",
-  "version": "0.7",
-  "permissions": ["contextMenus"],
-  "background": {
-    "persistent": false,
-    "scripts": ["quoteshot.js"]
-  },
-  "manifest_version": 2
+    "manifest_version": 2,
+    "name": "Quoteshot",
+    "short_name": "Quoteshot",
+    "description": "Select text anywhere and take a beautiful quoteshot!",
+    "version": "1.0",
+    "homepage_url": "https://quoteshot.app",
+    "author": "Ellen Li",
+    "background": {
+        "persistent": true,
+        "scripts": ["background.js"]
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "permissions": [
+        "activeTab",
+        "contextMenus",
+        "clipboardWrite"
+    ]
 }
-
-
