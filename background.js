@@ -1,5 +1,5 @@
 // Generates a context menu
-// Select text, right click, and take a quoteshot
+// Select text, right click, and ... take a quoteshot???
 
 const REQUEST_SELECTION = 'copy-selection-url-to-clipboard';
 
@@ -10,7 +10,7 @@ if (!browser) {
 
 browser.contextMenus.create({
     id: REQUEST_SELECTION,
-    title: "Take Quoteshot of “selected text goes here eventually and will be truncated”",
+    title: "Take Quoteshot", // future: Take Quoteshot of “selected text goes here”
     contexts: ["selection"],
     onclick: handleCopyRequest
 });
@@ -23,4 +23,8 @@ function handleCopyRequest(info, tab) {
          tabTitle: tab.title,
          useSelection: useSelection
     });
+
+    var newURL = 'quoteshot.html'; // how to pass through the quote selection???
+    chrome.tabs.create({ url: newURL });
+
 }
