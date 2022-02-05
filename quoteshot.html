@@ -9,52 +9,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quoteshot</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" type="text/css" href="style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-
+  <div class="customization">
+    <div class="customization-item">Show source? <input type="checkbox" id="toggle-title" checked /> <input id="input-title" type="text" value="Ursula Le Guin"></div>
+    <div class="customization-item">Show URL? <input type="checkbox" id="toggle-url" checked /> <input id="input-url" type="text" value=""></div>
+  </div>
 
   <blockquote>
-    <p id="url" data-text="url">file:///Users/ellenli/git/ellen.li/mood/omelas.pdf</p>
-
-    <p id="quote" data-text="quote" contenteditable="true" style="white-space: break-spaces;">Each alone, they go
-west or north, towards the mountains. They go on. They leave Omelas, they walk ahead into the
-darkness, and they do not come back. The place they go towards is a place even less imaginable
-to most of us than the city of happiness. I cannot describe it at all. It is possible that it does not
-exist. But they seem to know where they are going, the ones who walk away from Omelas.</p>
-
-<div class="source">
-  <p id="title" data-text="title">The Ones Who Walk Away From Omelas</p>
-  <p id="author" data-text="author">Ursula Le Guin</p>
-  <p class="quoteshot">Quoteshot.app</p>
-</div>
-
+    <p id="url" data-text="url"></p>
+    <p id="quote" data-text="quote" contenteditable="false" style="white-space: break-spaces;"></p>
+    <div class="source">
+      <p id="title" data-text="title"></p>
+      <p class="quoteshot">Quoteshot.app</p>
+    </div>
   </blockquote>
-
-
-<div class="customization">
-  Show author? <input type="checkbox" id="toggle-author" checked /> <input id="input-author" type="text" value="Ursula Le Guin">
-  <br />
-Show title? <input type="checkbox" id="toggle-title" checked /> <input id="input-title" type="text" value="The Ones Who Walk Away From Omelas">
-<br />
-Show URL? <input type="checkbox" id="toggle-url" checked /> <input id="input-url" type="text" value="file:///Users/ellenli/git/ellen.li/mood/omelas.pdf">
-
-</div>
-
-<!-- header -->
-<!-- main -->
-    <!-- left: source URL -->
-    <!-- left: editable text -->           <!-- right: image -->
-                                          <!-- toggle portrait or landscape -->
-                                          <!-- customize fonts/styles?? -->
-                                          <!-- upgrade for more customization?? custom stylesheets? -->
-
-                                          <!-- social links to share image -->
-
-<!-- share this extension? -->
-
 </body>
 <script src="quoteshot.js"></script>
 </html>

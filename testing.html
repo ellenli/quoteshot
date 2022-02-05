@@ -1,0 +1,47 @@
+<!--
+ sources: https://codepen.io/collinsworth/pen/obbvYQ
+ html to img: https://codepen.io/ronm/pen/RYbPaN
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quoteshot</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+  <div class="customization">
+    <!-- <div class="customization-title"><img src="icon.png" width="40px" height="40px" style="border-radius: 100%;"></div> -->
+    <div class="customization-item" id="font-picker">
+      <div class="font-option">
+        <p class="sample" style="font-family: 'EB Garamond', serif;">Aa</p>
+        <p class="label">Serif</p>
+      </div>
+      <div class="font-option">
+        <p class="sample" style="font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";">Aa</p>
+        <p class="label">Sans</p>
+      </div>
+      <div class="font-option">
+        <p class="sample" style="font-family: monospace;">Aa</p>
+        <p class="label">Mono</p>
+      </div>
+    </div>
+    <div class="customization-item">Show source? <input type="checkbox" id="toggle-title" checked /> <input id="input-title" type="text" value="You and Your Research by Richard Hamming"></div>
+    <div class="customization-item">Show URL? <input type="checkbox" id="toggle-url" checked /> <input id="input-url" type="text" value="http://cs.virginia.edu/~robins/YouAndYourResearch.html"></div>
+  </div>
+
+  <blockquote>
+    <p id="title" data-text="title">You and Your Research by Richard Hamming</p>
+
+    <p id="quote" data-text="quote" contenteditable="false" style="white-space: break-spaces;">
+      As a speaker in the Bell Communications Research Colloquium Series, Dr. Richard W. Hamming of the Naval Postgraduate School in Monterey, California, was introduced by Alan G. Chynoweth, Vice President, Applied Research, Bell Communications Research.
+    </p>
+    <div class="source">
+      <p id="url" data-text="url">http://cs.virginia.edu/~robins/YouAndYourResearch.html</p>
+      <p class="quoteshot">Quoteshot.app</p>
+    </div>
+  </blockquote>
+</body>
+</html>
