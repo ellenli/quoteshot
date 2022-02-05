@@ -91,9 +91,9 @@ body {
   padding:0;
 }
 blockquote {
-  margin: 0;
-  padding: 3vh 7vh;
+  padding: 4vh 7vh;
   position: relative;
+  margin-top: 10vh;
   width: 60%;
   min-width: 400px;
   max-width: 820px;
@@ -109,26 +109,49 @@ blockquote {
 blockquote #url {
   font-family: 'Inconsolata', monospace;
   font-size: 60%;
+  display: none;
 }
 blockquote .source {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 1em;
   width: 100%;
   flex-direction: row;
-  opacity: 0.6;
 }
-blockquote .source:first-child {
-  position: relative;
-  display: inline-flex;
-  opacity: 1;
+blockquote .source img {
+  object-fit: cover;
+  display: inline-block;
+  border-radius: 6px;
+  width: 60px;
+  height: 60px;
+  /* filter: grayscale(100%); */
 }
-blockquote .source .quoteshot {
+blockquote .source .source-meta {
+  display: flex;
+  flex-direction: column;
+}
+blockquote .source .source-meta > p {
+  margin: 0;
+  padding: 0;
+}
+blockquote .source .source-meta #title {
+  font-size: 0.8em;
+  line-height: 1.5em;
+  font-weight: 600;
+}
+blockquote .source .source-meta #author {
+  font-size: 0.8em;
+  line-height: 1.5em;
+}
+blockquote .quoteshot {
   position: relative;
-  display: inline-flex;
+  display: block;
+  float: right;
   opacity: 1;
-  font-size: 80%;
+  margin: 0;
+  font-size: 0.8em;
 }
 @media screen and (max-width: 1600px) {
   blockquote {
