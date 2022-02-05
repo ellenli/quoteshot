@@ -76,19 +76,21 @@ h2 strong:last-of-type:after {
 }
 .install {
   display: block;
-  border: 1px solid #ddd;
-  color: #666;
+  border: 0px solid #ccc;
+  background-color: #444;
+  color: #fff;
   margin: 3em;
-  padding: 1em 2em;
+  padding: 0.8em 1.6em;
   border-radius: 5px;
   text-decoration: none;
 }
 .install:hover {
-  border: 1px solid #000;
-  background-color: #f7f7f7;
-  color: #000;
+  border: 0px solid #333;
+  background-color: #000;
+  color: #fff;
   cursor: pointer;
   text-decoration: none;
+  transition: .3s;
 }
 .border {
   position: fixed;
