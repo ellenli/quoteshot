@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo&family=Inconsolata&display=swap');
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1em;
+  background-color: #fff;
+  padding: 0 2em;
+  box-sizing: border-box;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: 'Cardo', serif;
+  font-size: 7vw;
+  text-rendering: optimizeLegibility;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-fon-smoothing: grayscale;
+  margin: 0.5em 0 0.1em 0;
+}
+h2 {
+  font-family: 'Cardo', serif;
+  font-weight: normal;
+  margin: 0em 0 3em 0;
+}
+h2 strong:first-of-type {
+  font-weight: normal;
+  background-color: #eee;
+}
+h2 strong:last-of-type {
+}
+.install {
+  display: block;
+  border: 1px solid #ddd;
+  color: #666;
+  margin: 3em;
+  padding: 1em 2em;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.install:hover {
+  border: 1px solid #000;
+  background-color: #f7f7f7;
+  color: #000;
+  cursor: pointer;
+  text-decoration: none;
+}
+.border {
+  position: fixed;
+  left: 10px;
+  right: 10px;
+  top: 10px;
+  bottom: 10px;
+  border: 1vw solid red;
+  opacity: 1;
+  z-index: -1;
+}
+@media screen and (max-width: 1600px) {
+  h1 {
+    font-size: 8vw;
+  }
+}
+@media all and (max-width: 1200px) {
+  h1 {
+    font-size: 6vw;
+  }
+}
+@media all and (max-width: 600px) {
+  h1 {
+    font-size: 6vh;
+  }
+  h1 {
+    width: 100%;
+    min-width: 100%;
+  }
+}
