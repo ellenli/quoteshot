@@ -25,8 +25,6 @@ body {
   width: 100%;
   top: 0;
   left:0;
-  margin: 0;
-  padding: 0;
   border-bottom: 1px solid #ccc;
 }
 .customization-title {
@@ -51,6 +49,15 @@ body {
   padding: 2vh 3vh;
   font-size: 1em;
 }
+.customization-input {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  gap: 3px;
+  padding: 0;
+  margin: 0 2em 0 0;
+  width: 100%;
+}
 #font-picker {
   display: flex;
   position: relative;
@@ -61,7 +68,9 @@ body {
   display: flex;
   position: relative;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   gap: 5px;
   border: 1px solid #f7f7f7;
   background-color: #f7f7f7;
@@ -85,10 +94,34 @@ body {
   margin:0;
   padding:0;
 }
-.font-option .label {
+.font-option .label, .customization-input .label {
   font-size: 12px;
   margin:0;
   padding:0;
+  width: 100%;
+}
+.customization-input .label { /* for Label and toggle */
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.customization-input .label a { /* for Label and toggle */
+  text-decoration: none;
+  position: relative;
+  display: block;
+  background-color: #eee;
+  padding: 2px 3px;
+  color: #333;
+  border-radius: 3px;
+  font-size: 90%;
+  float: right;
+  right: 0;
+}
+.customization-input input {
+  border: 1px solid #000;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 8px 10px;
 }
 blockquote {
   padding: 4vh 7vh;
