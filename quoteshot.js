@@ -6,8 +6,8 @@
 $(() => {
   const urlSearchParams = new URLSearchParams(window.location.search)
   const params = Object.fromEntries(urlSearchParams.entries())
-  $('#url-input').value(params.url)
-  $('#title-input').value(params.title)
+  $('#url-input').val(params.url)
+  $('#title-input').val(params.title)
 
   $('.authorToggle').change(function() {
      $('#author').toggle(!this.checked)
