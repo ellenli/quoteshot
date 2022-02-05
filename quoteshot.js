@@ -6,14 +6,17 @@
 $(() => {
   const urlSearchParams = new URLSearchParams(window.location.search)
   const params = Object.fromEntries(urlSearchParams.entries())
-  $('#url-input').val(params.url)
-  $('#title-input').val(params.title)
+  ;['url', 'title', 'quote', 'author'].forEach(x => {
 
-  $('.authorToggle').change(function() {
-     $('#author').toggle(!this.checked)
-  }).change()
+    $('#input-' + x).val(params[x] || '')
 
-  $('.titleToggle').change(function() {
-     $('#title').toggle(!this.checked)
-  }).change()
+    $('[data-text=' + x + ']').text(params[x] || '')
+    $('#input-' + x).change(function() {
+      $('[data-text=' + x + ']').text(this.value)
+    }).change()
+
+    $('#toggle-' + x).change(function() {
+       $('#' + x).toggle(this.checked)
+    }).change()
+  })
 })

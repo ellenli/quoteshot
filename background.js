@@ -24,10 +24,15 @@ function urlencode(obj) {
 function handleQuoteshotRequest(info, tab) {
     // check in which context the command was clicked
 
-    const newTabReq = chrome.tabs.create({
-        url: 'http://localhost:8000/quoteshot.html?' + urlencode({
-            url: tab.url,
-            title: tab.title,
+    chrome.tabs.executeScript(tab.id, {
+        code: "window.getSelection().toString()"
+    }, result => {
+        const newTabReq = chrome.tabs.create({
+            url: 'http://localhost:8000/quoteshot.html?' + urlencode({
+                url: tab.url,
+                title: tab.title,
+                quote: result[0],
+            })
         })
     })
 }
