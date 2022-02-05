@@ -1,14 +1,42 @@
-<html>
+<!--
+ sources: https://codepen.io/collinsworth/pen/obbvYQ
+ html to img: https://codepen.io/ronm/pen/RYbPaN
+-->
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quoteshot</title>
-  <style>
-    body {
-      font-family: arial, helvetica, sans-serif;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="quoteshot.js"></script>
 </head>
 <body>
+
+
+  <blockquote>
+  	<p id="quote">Each alone, they go
+west or north, towards the mountains. They go on. They leave Omelas, they walk ahead into the
+darkness, and they do not come back. The place they go towards is a place even less imaginable
+to most of us than the city of happiness. I cannot describe it at all. It is possible that it does not
+exist. But they seem to know where they are going, the ones who walk away from Omelas.</p>
+
+<div class="source">
+  <p id="title">The Ones Who Walk Away From Omelas</p>
+  <p id="author">Ursula Le Guin</p>
+  <p class="quoteshot">Quoteshot.app</p>
+</div>
+
+  </blockquote>
+
+
+<div class="customization">
+  Show author? <input type="checkbox" class="authorToggle" /> <input type="text" value="Ursula Le Guin">
+  <br />
+Show title? <input type="checkbox" class="titleToggle" /> <input type="text" value="The Ones Who Walk Away From Omelas">
+</div>
 
 <!-- header -->
 <!-- main -->
