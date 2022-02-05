@@ -11,9 +11,9 @@ $(() => {
     $('#input-' + x).val(params[x] || '')
 
     $('[data-text=' + x + ']').text(params[x] || '')
-    $('#input-' + x).change(function() {
+    $('#input-' + x).on("input", function() {
       $('[data-text=' + x + ']').text(this.value)
-    }).change()
+    }).trigger("input")
 
     $('#toggle-' + x).change(function() {
        $('#' + x).toggle(this.checked)
