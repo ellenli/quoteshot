@@ -46,6 +46,16 @@ blockquote .source {
   width: 100%;
   flex-direction: row;
 }
+blockquote #url {
+  position: relative;
+  display: block;
+  float: left;
+  text-align: left;
+  opacity: 1;
+  width: 100%;
+  font-size: 50%;
+  font-family: monospace;
+}
 blockquote #author {
   position: relative;
   display: block;
