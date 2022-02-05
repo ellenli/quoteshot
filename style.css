@@ -81,7 +81,7 @@ h2 strong:last-of-type:after {
   color: #fff;
   margin: 3em;
   padding: 0.8em 1.6em;
-  border-radius: 5px;
+  border-radius: 6px;
   text-decoration: none;
 }
 .install:hover {
