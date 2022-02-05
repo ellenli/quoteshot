@@ -117,7 +117,7 @@ h2 strong:last-of-type:after {
 }
 @media all and (max-width: 1200px) {
   h1 {
-    font-size: 6vw;
+    font-size: 8vw;
   }
 }
 @media all and (max-width: 600px) {
@@ -127,5 +127,8 @@ h2 strong:last-of-type:after {
   h1 {
     width: 100%;
     min-width: 100%;
+  }
+  h2 {
+    width: 60%;
   }
 }
