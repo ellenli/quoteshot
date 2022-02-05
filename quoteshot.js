@@ -3,14 +3,17 @@
 
 // take remaining text and put it into ... this?: https://github.com/hemanth/make-quote
 
-$(function () {
-  $('.authorToggle').change(function () {
-     $('#author').toggle(!this.checked);
-  }).change(); //ensure visible state matches initially
-});
+$(() => {
+  const urlSearchParams = new URLSearchParams(window.location.search)
+  const params = Object.fromEntries(urlSearchParams.entries())
+  $('#url-input').value(params.url)
+  $('#title-input').value(params.title)
 
-$(function () {
-  $('.titleToggle').change(function () {
-     $('#title').toggle(!this.checked);
-  }).change(); //ensure visible state matches initially
-});
+  $('.authorToggle').change(function() {
+     $('#author').toggle(!this.checked)
+  }).change()
+
+  $('.titleToggle').change(function() {
+     $('#title').toggle(!this.checked)
+  }).change()
+})

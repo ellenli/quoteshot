@@ -4,37 +4,36 @@
 
 let modKeyDown = false;
 
-chrome.runtime.onMessage.addListener(
-    function(request, sender) {
-        // grab Shift key state as fast as we can
-        const forceTitle = modKeyDown;
-        let clipboardData = request.tabTitle + '\n' + request.tabUrl;
+chrome.runtime.onMessage.addListener(function(request, sender) {
+    alert("HI:" + JSON.stringify(request))
+    // grab Shift key state as fast as we can
+    const forceTitle = modKeyDown;
+    let clipboardData = request.tabTitle + '\n' + request.tabUrl;
 
-        if (request.useSelection) {
-            const selectedText = window.getSelection().toString().trim();
-            if (selectedText) {
-                clipboardData = selectedText + '\n' + request.tabUrl;
-                if (forceTitle) {
-                    clipboardData = request.tabTitle + '\n' + clipboardData;
-                }
+    if (request.useSelection) {
+        const selectedText = window.getSelection().toString().trim();
+        if (selectedText) {
+            clipboardData = selectedText + '\n' + request.tabUrl;
+            if (forceTitle) {
+                clipboardData = request.tabTitle + '\n' + clipboardData;
             }
         }
-
-        // When we copy data, we create a new DOM element.
-        // This destroys current selection, so we save the selection
-        // and restore it after copying.
-        let selectionRange = null;
-        if (request.useSelection) {
-            selectionRange = saveSelection();
-        }
-
-        copyToClipboard(clipboardData);
-
-        if (selectionRange) {
-            restoreSelection(selectionRange);
-        }
     }
-);
+
+    // When we copy data, we create a new DOM element.
+    // This destroys current selection, so we save the selection
+    // and restore it after copying.
+    let selectionRange = null;
+    if (request.useSelection) {
+        selectionRange = saveSelection();
+    }
+
+    copyToClipboard(clipboardData);
+
+    if (selectionRange) {
+        restoreSelection(selectionRange);
+    }
+});
 
 function copyToClipboard(data) {
     // https://stackoverflow.com/questions/3436102/copy-to-clipboard-in-chrome-extension

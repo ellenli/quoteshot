@@ -15,17 +15,19 @@ browser.contextMenus.create({
     onclick: handleQuoteshotRequest
 });
 
+function urlencode(obj) {
+    return Object.entries(obj).map(kv => {
+        return encodeURIComponent(kv[0]) + '=' + encodeURIComponent(kv[1])
+    }).join('&')
+}
+
 function handleQuoteshotRequest(info, tab) {
     // check in which context the command was clicked
 
-    var newURL = 'quoteshot.html';
-    chrome.tabs.create({ url: newURL });
-
-
-    const useSelection = info.menuItemId === REQUEST_SELECTION;
-    chrome.tabs.sendMessage(tab.id,
-        {tabUrl: tab.url,
-         tabTitle: tab.title,
-         useSelection: useSelection
-    });
+    const newTabReq = chrome.tabs.create({
+        url: 'http://localhost:8000/quoteshot.html?' + urlencode({
+            url: tab.url,
+            title: tab.title,
+        })
+    })
 }
