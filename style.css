@@ -8,6 +8,7 @@ body {
   height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1em;
+  line-height: 1.5;
   background-color: #fff;
   padding: 0 2em;
   box-sizing: border-box;
@@ -131,6 +132,10 @@ h2 strong:last-of-type:after {
     min-width: 100%;
   }
   h2 {
-    width: 60%;
+    width: 85%;
+  }
+  .intro {
+    width: 55%;
+    text-align: center;
   }
 }
