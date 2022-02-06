@@ -10,18 +10,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quoteshot</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" ></script>
 </head>
 <body>
   <div class="customization">
-    <!-- <div class="customization-title"><img src="icon.png" width="40px" height="40px" style="border-radius: 100%;"></div> -->
     <div class="customization-item">
-      <a href="edit-icon">
+      <a href="">
         <img src="https://s3.amazonaws.com/loa-production-23ffs35gui41a/writers/images/000/000/655/big/le_guin_ursula_WD.jpg?1472665265">
+        <i class="fa fa-minus-circle" aria-hidden="true"></i>
         </a>
     </div>
     <div class="customization-input">
       <div class="label">
-        <label for="input-title">Title</label>
+        <label for="input-title">Source</label>
         <a href="">Hide</a>
       </div>
       <input id="input-title" type="text" value="The Ones Who Walk Away From Omelas">
@@ -34,24 +36,24 @@
       <input id="input-author" type="text" value="Ursula K. Le Guin">
     </div>
   </div>
-
-  <blockquote>
-    <div class="source">
-    <img src="https://s3.amazonaws.com/loa-production-23ffs35gui41a/writers/images/000/000/655/big/le_guin_ursula_WD.jpg?1472665265">
-    <div class="source-meta">
-      <p id="title" data-text="title">The Ones Who Walk Away From Omelas</p>
-      <p id="author" data-text="author">Ursula K. Le Guin</p>
+  <div class="quoteshot-container">
+    <blockquote id="capture">
+      <div class="source">
+        <div class="avatar"></div>
+        <div class="source-meta">
+          <p id="title" data-text="title">The Ones Who Walk Away From Omelas</p>
+          <p id="author" data-text="author">Ursula K. Le Guin</p>
+        </div>
     </div>
+    <!-- white-space: break-spaces -->
+      <p id="quote" data-text="quote" contenteditable="false" style="white-space: normal;">Each alone, they go
+  west or north, towards the mountains. They go on. They leave Omelas, they walk ahead into the
+  darkness, and they do not come back. The place they go towards is a place even less imaginable
+  to most of us than the city of happiness. I cannot describe it at all. It is possible that it does not
+  exist. But they seem to know where they are going, the ones who walk away from Omelas.</p>
+      <p class="quoteshot">Quoteshot.app</p>
+    </blockquote>
   </div>
-  <!-- white-space: break-spaces -->
-    <p id="quote" data-text="quote" contenteditable="false" style="white-space: normal;">Each alone, they go
-west or north, towards the mountains. They go on. They leave Omelas, they walk ahead into the
-darkness, and they do not come back. The place they go towards is a place even less imaginable
-to most of us than the city of happiness. I cannot describe it at all. It is possible that it does not
-exist. But they seem to know where they are going, the ones who walk away from Omelas.</p>
-    <p class="quoteshot">Quoteshot.app</p>
-    <p id="url" data-text="url">http://cs.virginia.edu/~robins/YouAndYourResearch.html</p>
-  </blockquote>
 
   <!--
   <div style="margin-top:60px;">ignore this stuff<br />
@@ -61,6 +63,27 @@ exist. But they seem to know where they are going, the ones who walk away from O
     <div class="customization-item">Author <input type="checkbox" id="toggle-title" checked /> <input id="input-title" type="text" value="Ursula K. Le Guin"></div>
   </div>
 -->
+<script type="text/javascript">
+  function capture() {
+    const captureElement = document.querySelector('#capture')
+    html2canvas(captureElement)
+      .then(canvas => {
+        canvas.style.display = 'none'
+        document.body.appendChild(canvas)
+        return canvas
+      })
+      .then(canvas => {
+        const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
+        const a = document.createElement('a')
+        a.setAttribute('download', 'quoteshot-yyyy-mm-dd-hh-ss.png')
+        a.setAttribute('href', image)
+        a.click()
+        canvas.remove()
+      })
+  }
+  const download = document.querySelector('#download')
+  download.addEventListener('click', capture)
+</script>
 
   <div class="share">
     <div class="share-item">
@@ -82,9 +105,9 @@ exist. But they seem to know where they are going, the ones who walk away from O
       </div>
     </div>
     <div class="save-item">
-      <div class="share-option">
+      <div class="share-option" id="download"  onclick="capture()">
         <p class="icon">X</p>
-        <p class="label">Download Quoteshot</p>
+        <p class="label" id="btn">Save as Image</p>
       </div>
     </div>
   </div>
