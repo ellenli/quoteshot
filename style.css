@@ -100,6 +100,29 @@ body {
   padding:0;
   width: 100%;
 }
+.customization-item img {
+  position: relative;
+  object-fit: cover;
+  display: inline-block;
+  border-radius: 6px;
+  width: 60px;
+  height: 60px;
+  filter: grayscale(100%);
+  opacity: 0.3;
+}
+.customization-item a::after {
+  position:absolute;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center center;
+  content:"(hide)";
+  text-align: center;
+	/* background-image:url(https://images.vexels.com/media/users/3/143461/isolated/preview/6cdcfad63c487e445cc69083b916f2a9-red-check-mark-by-vexels.png); */
+}
 .customization-input .label { /* for Label and toggle */
   display: inline-flex;
   flex-direction: row;
