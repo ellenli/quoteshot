@@ -1,8 +1,3 @@
-<!--
- sources: https://codepen.io/collinsworth/pen/obbvYQ
- html to img: https://codepen.io/ronm/pen/RYbPaN
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,22 +5,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quoteshot</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" ></script>
 </head>
 <body>
   <div class="customization">
-    <div class="customization-item">Show source? <input type="checkbox" id="toggle-title" checked /> <input id="input-title" type="text" value="Ursula Le Guin"></div>
-    <div class="customization-item">Show URL? <input type="checkbox" id="toggle-url" checked /> <input id="input-url" type="text" value=""></div>
+    <div class="customization-input">
+      <div class="label">
+        <label for="input-title">Source</label>
+        <a href="" id="toggle-title">Hide</a> <!-- ‘Show‘ or ‘Hide‘ -->
+      </div>
+      <input id="input-title" type="text" value="The Ones Who Walk Away From Omelas">
+    </div>
+    <div class="customization-input">
+      <div class="label">
+        <label for="input-author">Author</label>
+        <a href="" id="toggle-author">Hide</a> <!-- ‘Show‘ or ‘Hide‘ -->
+      </div>
+      <input id="input-author" type="text" value="Ursula K. Le Guin">
+    </div>
+  </div>
+  <div class="quoteshot-container">
+    <blockquote id="capture">
+      <div class="source">
+        <div class="source-meta">
+          <p id="title" data-text="title">The Ones Who Walk Away From Omelas</p>
+          <p id="author" data-text="author">Ursula K. Le Guin</p>
+        </div>
+    </div>
+    <!-- white-space: break-spaces -->
+      <p id="quote" data-text="quote" contenteditable="true" style="white-space: break-spaces;">Each alone, they go
+  west or north, towards the mountains. They go on. They leave Omelas, they walk ahead into the
+  darkness, and they do not come back. The place they go towards is a place even less imaginable
+  to most of us than the city of happiness. I cannot describe it at all. It is possible that it does not
+  exist. But they seem to know where they are going, the ones who walk away from Omelas.</p>
+      <p class="quoteshot">Quoteshot.app</p>
+    </blockquote>
   </div>
 
-  <blockquote>
-    <p id="url" data-text="url"></p>
-    <p id="quote" data-text="quote" contenteditable="false" style="white-space: break-spaces;"></p>
-    <div class="source">
-      <p id="title" data-text="title"></p>
-      <p class="quoteshot">Quoteshot.app</p>
+  <!--
+  <div style="margin-top:60px;">ignore this stuff<br />
+    <input type="checkbox" id="toggle-url" checked /> <input id="input-url" type="text" value="http://cs.virginia.edu/~robins/YouAndYourResearch.html">
+    <div class="customization-item">Avatar <input type="checkbox" id="toggle-title" checked /></div>
+    <div class="customization-item">Title <input type="checkbox" id="toggle-title" checked /> <input id="input-title" type="text" value="The Ones Who Walk Away From Omelas"></div>
+    <div class="customization-item">Author <input type="checkbox" id="toggle-title" checked /> <input id="input-title" type="text" value="Ursula K. Le Guin"></div>
+  </div>
+-->
+<script type="text/javascript">
+  function capture() {
+    const captureElement = document.querySelector('#capture')
+    html2canvas(captureElement)
+      .then(canvas => {
+        canvas.style.display = 'none'
+        document.body.appendChild(canvas)
+        return canvas
+      })
+      .then(canvas => {
+        const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
+        const a = document.createElement('a')
+        a.setAttribute('download', 'quoteshot-yyyy-mm-dd-hh-ss.png')
+        a.setAttribute('href', image)
+        a.click()
+        canvas.remove()
+      })
+  }
+  const download = document.querySelector('#download')
+  download.addEventListener('click', capture)
+</script>
+
+  <div class="share">
+    <div class="share-item">
+      <div class="share-option" style="background-color:#1DA1F2;">
+        <p class="icon">X</p>
+        <p class="label">Share on Twitter</p>
+      </div>
+      <div class="share-option" style="background-color:#4267B2;">
+        <p class="icon">X</p>
+        <p class="label">Share on Facebook</p>
+      </div>
+      <div class="share-option" style="background-color: #0077b5;">
+        <p class="icon">X</p>
+        <p class="label">Share on LinkedIn</p>
+      </div>
+      <div class="share-option" style="background-color:#666;">
+        <p class="icon">X</p>
+        <p class="label">Share on Are.na</p>
+      </div>
     </div>
-  </blockquote>
+    <div class="save-item">
+      <div class="share-option" id="download"  onclick="capture()">
+        <p class="icon">X</p>
+        <p class="label" id="btn">Save as Image</p>
+      </div>
+    </div>
+  </div>
+
 </body>
 <script src="quoteshot.js"></script>
+
 </html>

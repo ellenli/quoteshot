@@ -1,17 +1,11 @@
-<!--
- sources: https://codepen.io/collinsworth/pen/obbvYQ
- html to img: https://codepen.io/ronm/pen/RYbPaN
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Quoteshot</title>
+  <title>UI Testing</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" ></script>
-  <script src="quoteshot.js" ></script>
 </head>
 <body>
   <div class="customization">
@@ -39,11 +33,7 @@
         </div>
     </div>
     <!-- white-space: break-spaces -->
-      <p id="quote" data-text="quote" contenteditable="true" style="white-space: normal;">Each alone, they go
-  west or north, towards the mountains. They go on. They leave Omelas, they walk ahead into the
-  darkness, and they do not come back. The place they go towards is a place even less imaginable
-  to most of us than the city of happiness. I cannot describe it at all. It is possible that it does not
-  exist. But they seem to know where they are going, the ones who walk away from Omelas.</p>
+      <p id="quote" data-text="quote" contenteditable="true" style="white-space: break-spaces;">Each alone, they go west or north, towards the mountains. They go on. They leave Omelas, they walk ahead into the darkness, and they do not come back. The place they go towards is a place even less imaginable to most of us than the city of happiness. I cannot describe it at all. It is possible that it does not exist. But they seem to know where they are going, the ones who walk away from Omelas.</p>
       <p class="quoteshot">Quoteshot.app</p>
     </blockquote>
   </div>
@@ -106,4 +96,6 @@
   </div>
 
 </body>
+<script src="quoteshot.js"></script>
+
 </html>

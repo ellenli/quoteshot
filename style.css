@@ -90,7 +90,7 @@ body {
   padding-bottom: 1px;
 }
 .share {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
