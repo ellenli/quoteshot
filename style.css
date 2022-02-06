@@ -203,17 +203,6 @@ blockquote .source {
   margin: 0;
   padding: 0;
 }
-blockquote .avatar {
-  background-image: url(https://s3.amazonaws.com/loa-production-23ffs35gui41a/writers/images/000/000/655/big/le_guin_ursula_WD.jpg);
-  background-size: cover;
-  background-position: center;
-  display: inline-block;
-  border-radius: 6px;
-  width: 60px;
-  height: 60px;
-  z-index: 99;
-  /* filter: grayscale(100%); */
-}
 blockquote .source .source-meta {
   display: flex;
   flex-direction: column;
