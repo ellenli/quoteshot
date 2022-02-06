@@ -25,7 +25,8 @@ body {
   width: 100%;
   top: 0;
   left:0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
+  background-color: #f9f9f9;
 }
 .customization-title {
   display: inline-flex;
@@ -53,7 +54,7 @@ body {
   display: inline-flex;
   flex-direction: column;
   position: relative;
-  gap: 3px;
+  gap: 1px;
   padding: 0;
   margin: 0 2em 0 0;
   width: 100%;
@@ -72,7 +73,7 @@ body {
   align-items: center;
   text-align: center;
   gap: 5px;
-  border: 1px solid #f7f7f7;
+  border: 1px solid #ddd;
   background-color: #f7f7f7;
   border-radius: 6px;
   padding: 8px 10px;
@@ -80,12 +81,12 @@ body {
 }
 .font-option:hover {
   border: 1px solid #ccc;
-  background-color: #f7f7f7;
+  background-color: #fff;
   cursor: pointer;
   transition: 0.3s;
 }
 .font-option:first-child {
-  border: 1px solid #000;
+  border: 1px solid #999;
   background-color: #fff;
 }
 .font-option .sample {
@@ -141,7 +142,7 @@ body {
   right: 0;
 }
 .customization-input input {
-  border: 1px solid #000;
+  border: 1px solid #ccc;
   background-color: #fff;
   border-radius: 4px;
   padding: 10px 14px;
@@ -156,7 +157,7 @@ body {
   width: 100%;
   bottom: 0;
   left:0;
-  border-top: 1px solid #ccc;
+  border-top: 0px solid #ccc;
   font-size: 1em;
 }
 .share-item {
