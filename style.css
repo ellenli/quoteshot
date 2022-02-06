@@ -62,7 +62,7 @@ h2 strong:last-of-type:before {
   background-image: url('underline.svg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 h2 strong:last-of-type:after {
   content: "";
@@ -75,7 +75,7 @@ h2 strong:last-of-type:after {
   background-image: url('underline.svg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .actions {}
 .install {
