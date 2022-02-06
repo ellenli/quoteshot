@@ -20,6 +20,9 @@ a, a:hover {
   text-decoration: none;
   color: #000;
 }
+.intro {
+  text-align: center;
+}
 h1 {
   display: block;
   width: 100%;
@@ -143,11 +146,7 @@ h2 strong:last-of-type:after {
     width: 100%;
     min-width: 100%;
   }
-  h2 {
-    width: 85%;
-  }
-  .intro {
-    width: 55%;
-    text-align: center;
+  .install {
+    margin: 0em;
   }
 }
