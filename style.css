@@ -145,6 +145,9 @@ h2 strong:last-of-type:after {
   }
 }
 @media all and (max-width: 600px) {
+  .intro, .left, .right {
+    font-size: 80%;
+  }
   br {
     display: inherit;
   }
