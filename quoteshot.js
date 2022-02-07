@@ -26,7 +26,7 @@ $(() => {
 
 // save quoteshot locally
 function capture() {
-  const captureElement = document.querySelector('.quoteshot-container')
+  const captureElement = document.getElementById('capture')
   html2canvas(captureElement)
     .then(canvas => {
       canvas.style.display = 'none'
