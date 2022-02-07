@@ -38,6 +38,9 @@
     </blockquote>
   </div>
 
+  <!-- save source URL, hidden for share links -->
+  <input id="input-url" type="text" value="http://cs.virginia.edu/~robins/YouAndYourResearch.html" style="display:none;">
+  
   <!--
   <div style="margin-top:60px;">ignore this stuff<br />
     <input type="checkbox" id="toggle-url" checked /> <input id="input-url" type="text" value="http://cs.virginia.edu/~robins/YouAndYourResearch.html">
@@ -68,16 +71,25 @@
   download.addEventListener('click', capture)
 </script>
 
+<script>
+  function facebook(){
+    var url="http://www.example.com"; //source URL here
+    var img="http://www.example.com/example.jpg"; //quoteshot image here
+    var totalurl=encodeURIComponent(url+'?img='+img);
+    window.open ('http://www.facebook.com/sharer.php?u='+totalurl,'','width=500, height=500, scrollbars=yes, resizable=no');
+  }
+</script>
+
   <div class="share">
     <div class="share-item">
       <div class="share-option" style="background-color:#1DA1F2;">
         <p class="icon">X</p>
         <p class="label">Share on Twitter</p>
       </div>
-      <div class="share-option" style="background-color:#4267B2;">
+      <a class="share-option" style="background-color:#4267B2;" onclick="facebook()">
         <p class="icon">X</p>
         <p class="label">Share on Facebook</p>
-      </div>
+      </a>
       <div class="share-option" style="background-color: #0077b5;">
         <p class="icon">X</p>
         <p class="label">Share on LinkedIn</p>
@@ -88,7 +100,7 @@
       </div>
     </div>
     <div class="save-item">
-      <div class="share-option" id="download"  onclick="capture()">
+      <div class="share-option" id="download" onclick="capture()">
         <p class="icon">X</p>
         <p class="label" id="btn">Save as Image</p>
       </div>
