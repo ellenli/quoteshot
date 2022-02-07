@@ -55,7 +55,7 @@ function copyToClipboard() {
 
   // reference: https://codepen.io/karannagupta/pen/RXpddB
   const captureElement = document.getElementById('capture');
-  html2canvas(captureElement).then(function(canvas) (
+  html2canvas(captureElement).then(function(canvas) {
     canvas.toBlob(function(blob) {
         navigator.clipboard
           .write([
@@ -71,8 +71,7 @@ function copyToClipboard() {
             domNode.classList.remove("on");
         });
       })
-    );
-  window.alert("Quoteshot image copied to clipboard.");
+  });
   domNode.classList.remove("on");
 }
 const copy = document.querySelector('#copyButton');
