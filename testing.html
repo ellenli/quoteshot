@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UI Testing</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" ></script>
 </head>
 <body>
@@ -23,6 +24,17 @@
       </div>
       <input id="input-author" type="text" value="Ursula K. Le Guin">
     </div>
+    <div class="actions">
+      <div class="save-item" id="copy" onclick="copyImage()">
+        <!-- <button class="copy-icon">Copy</button> -->
+        <p class="icon"><i class="fa fas fa-copy"></i></p>
+        <p class="label" id="copyButton">Copy Image</p>
+      </div>
+      <div class="save-item" id="download" onclick="capture()">
+        <p class="icon"><i class="fa fas fa-download"></i></p>
+        <p class="label" id="downloadButton">Save Image</p>
+      </div>
+    </div>
   </div>
   <div class="quoteshot-container">
     <blockquote id="capture">
@@ -40,15 +52,7 @@
 
   <!-- save source URL, hidden for share links -->
   <input id="input-url" type="text" value="http://cs.virginia.edu/~robins/YouAndYourResearch.html" style="display:none;">
-  
-  <!--
-  <div style="margin-top:60px;">ignore this stuff<br />
-    <input type="checkbox" id="toggle-url" checked /> <input id="input-url" type="text" value="http://cs.virginia.edu/~robins/YouAndYourResearch.html">
-    <div class="customization-item">Avatar <input type="checkbox" id="toggle-title" checked /></div>
-    <div class="customization-item">Title <input type="checkbox" id="toggle-title" checked /> <input id="input-title" type="text" value="The Ones Who Walk Away From Omelas"></div>
-    <div class="customization-item">Author <input type="checkbox" id="toggle-title" checked /> <input id="input-title" type="text" value="Ursula K. Le Guin"></div>
-  </div>
--->
+
 <script type="text/javascript">
   function capture() {
     const captureElement = document.querySelector('#capture')
@@ -71,38 +75,48 @@
   download.addEventListener('click', capture)
 </script>
 
+
 <script>
-  function facebook(){
-    var url="http://www.example.com"; //source URL here
-    var img="http://www.example.com/example.jpg"; //quoteshot image here
-    var totalurl=encodeURIComponent(url+'?img='+img);
-    window.open ('http://www.facebook.com/sharer.php?u='+totalurl,'','width=500, height=500, scrollbars=yes, resizable=no');
-  }
+  // copy to clipboard
+  var copyIcon = document.querySelector('.copy-icon');
+  copyIcon.addEventListener("click", function(e) {
+  	e.preventDefault();
+
+  	// get the node
+  	var domNode = document.getElementById('capture');
+  	domNode.classList.add("on");
+
+  	// get the svg
+  	var svg = domNode.querySelector(".line-graph");
+
+  	// copy the canvas to the clipboard with chrome's CliboardItem API
+  	// https://developers.google.com/web/updates/2019/07/image-support-for-async-clipboard#images
+  	html2canvas(svg).then(function(canvas) {
+  		canvas.toBlob(function(blob) {
+  			navigator.clipboard
+  				.write([
+  				new ClipboardItem(
+  					Object.defineProperty({}, blob.type, {
+  						value: blob,
+  						enumerable: true
+  					})
+  				)
+  			])
+  				.then(function() {
+  				console.log("Copied to clipboard");
+  				domNode.classList.remove("on");
+  			});
+  		});
+  	});
+  });
 </script>
 
   <div class="share">
-    <div class="share-item">
-      <div class="share-option" style="background-color:#1DA1F2;">
-        <p class="icon">X</p>
-        <p class="label">Share on Twitter</p>
-      </div>
-      <a class="share-option" style="background-color:#4267B2;" onclick="facebook()">
-        <p class="icon">X</p>
-        <p class="label">Share on Facebook</p>
-      </a>
-      <div class="share-option" style="background-color: #0077b5;">
-        <p class="icon">X</p>
-        <p class="label">Share on LinkedIn</p>
-      </div>
-      <div class="share-option" style="background-color:#666;">
-        <p class="icon">X</p>
-        <p class="label">Share on Are.na</p>
-      </div>
-    </div>
     <div class="save-item">
+      <button class="copy-icon">Copy to Clipboard</button>
       <div class="share-option" id="download" onclick="capture()">
         <p class="icon">X</p>
-        <p class="label" id="btn">Save as Image</p>
+        <p class="label" id="btn">Save Image</p>
       </div>
     </div>
   </div>
