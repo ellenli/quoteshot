@@ -47,6 +47,12 @@ h2 strong:first-of-type {
   font-weight: 400;
   background-color: #eee;
 }
+#menu {
+  position: absolute;
+  display: inline-block;
+  width: 30%;
+  z-index: 99;
+}
 h2 strong:last-of-type {
   position: relative;
   font-weight: 600;
@@ -143,6 +149,9 @@ h2 strong:last-of-type:after {
   br {
     display: none;
   }
+  #menu{
+    display: none;
+  }
 }
 @media all and (max-width: 600px) {
   .intro, .left, .right {
@@ -175,5 +184,8 @@ h2 strong:last-of-type:after {
   }
   .install {
     margin: 1.5em 0;
+  }
+  #menu{
+    display: none;
   }
 }
