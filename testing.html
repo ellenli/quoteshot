@@ -50,9 +50,6 @@
     </blockquote>
   </div>
 
-  <!-- save source URL, hidden for share links -->
-  <input id="input-url" type="text" value="http://cs.virginia.edu/~robins/YouAndYourResearch.html" style="display:none;">
-
   <script type="text/javascript">
     function capture() {
       const captureElement = document.querySelector('#capture')
@@ -69,6 +66,7 @@
           a.setAttribute('download', filename)
           a.setAttribute('href', image)
           a.click()
+          window.alert(filename + " downloaded")
           canvas.remove()
         })
     }
@@ -76,14 +74,26 @@
     download.addEventListener('click', capture)
   </script>
 
+  <script type="text/javascript">
+    function copy() {
+      const captureElement = document.querySelector('#capture')
+      html2canvas(captureElement).then(canvas => {
+        canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})]))
+      }
+      window.alert("quoteshot copied to clipboard");
+    })
+    const copy = document.querySelector('#copyButton')
+    copy.addEventListener('click', capture)
 
 
-<p class="footer">
-  <a href="https://quoteshot.app" target="_blank">Quoteshot.app</a>
-  <a href="https://twitter.com/quoteshotapp" target="_blank">@quoteshotapp</a>
-  <a href="mailto:quoteshotapp@gmail.com">Send Feedback</a>
-  <a href="">Leave a Review</a>
-</p>
+  </script>
+
+  <p class="footer">
+    <a href="https://quoteshot.app" target="_blank">Quoteshot.app</a>
+    <a href="https://twitter.com/quoteshotapp" target="_blank">@quoteshotapp</a>
+    <a href="mailto:quoteshotapp@gmail.com">Send Feedback</a>
+    <a href="">Leave a Review</a>
+  </p>
 
 </body>
 
