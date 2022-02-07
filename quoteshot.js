@@ -8,11 +8,11 @@ $(() => {
   const params = Object.fromEntries(urlSearchParams.entries())
   ;['url', 'title', 'quote', 'author'].forEach(x => {
 
-    $('#input-' + x).val(params[x] || '')
+    $('#input-' + x).val(params[x] || 'Unknown ' + x)
 
     $('[data-text=' + x + ']').text(params[x] || '')
     $('#input-' + x).on("input", function() {
-      $('[data-text=' + x + ']').text(this.value || 'Unknown ' + x)
+      $('[data-text=' + x + ']').text(this.value)
     }).trigger("input")
 
     $('#toggle-' + x).change(function() {
