@@ -8,11 +8,18 @@ $(() => {
   const params = Object.fromEntries(urlSearchParams.entries())
   ;['url', 'title', 'quote', 'author'].forEach(x => {
 
-    $('#input-' + x).val(params[x] || 'Unknown ' + x)
+    const unknownVal = 'Unknown ' + x
+    const initialval = params[x] || unknownVal
+    $('#input-' + x).val(initialval)
+
+    if (initialval == unknownVal)
+      $('#toggle-' + x).prop('checked', false)
 
     $('[data-text=' + x + ']').text(params[x] || '')
-    $('#input-' + x).on("input", function() {
+    $('#input-' + x).on('input', function() {
       $('[data-text=' + x + ']').text(this.value)
+      if (this.value != unknownVal)
+        $('#toggle-' + x).prop('checked', true).change()
     }).trigger("input")
 
     $('#toggle-' + x).change(function() {
