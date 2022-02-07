@@ -16,7 +16,7 @@ $(() => {
     }).trigger("input")
 
     $('#toggle-' + x).change(function() {
-       $('#' + x).toggle(this.checked)
+      $('#' + x).toggle(this.checked)
     }).change()
   })
 })
