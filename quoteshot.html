@@ -6,6 +6,7 @@
   <title>Quoteshot</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" ></script>
 </head>
 <body>
@@ -23,6 +24,16 @@
         <input id="toggle-author" type="checkbox" checked />
       </div>
       <input id="input-author" type="text" value="Ursula K. Le Guin">
+    </div>
+    <div class="actions">
+      <div class="save-item" id="copy" onclick="copyImage()">
+        <p class="icon"><i class="fa fas fa-copy"></i></p>
+        <p class="label" id="copyButton">Copy</p>
+      </div>
+      <div class="save-item" id="download" onclick="capture()">
+        <p class="icon"><i class="fa fas fa-download"></i></p>
+        <p class="label" id="downloadButton">Save</p>
+      </div>
     </div>
   </div>
   <div class="quoteshot-container">
@@ -77,32 +88,6 @@
   download.addEventListener('click', capture)
 </script>
 
-  <div class="share">
-    <div class="share-item">
-      <div class="share-option" style="background-color:#1DA1F2;">
-        <p class="icon">X</p>
-        <p class="label">Share on Twitter</p>
-      </div>
-      <div class="share-option" style="background-color:#4267B2;">
-        <p class="icon">X</p>
-        <p class="label">Share on Facebook</p>
-      </div>
-      <div class="share-option" style="background-color: #0077b5;">
-        <p class="icon">X</p>
-        <p class="label">Share on LinkedIn</p>
-      </div>
-      <div class="share-option" style="background-color:#666;">
-        <p class="icon">X</p>
-        <p class="label">Share on Are.na</p>
-      </div>
-    </div>
-    <div class="save-item">
-      <div class="share-option" id="download"  onclick="capture()">
-        <p class="icon">X</p>
-        <p class="label" id="btn">Save as Image</p>
-      </div>
-    </div>
-  </div>
 
 </body>
 <script src="quoteshot.js"></script>
