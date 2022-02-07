@@ -1,8 +1,4 @@
-// take clipboard (selection text)
-// save last line as url, then cut it off...  show it somewhere..
-
-// take remaining text and put it into ... this?: https://github.com/hemanth/make-quote
-
+// controlling/editing the quoteshot content
 $(() => {
   const urlSearchParams = new URLSearchParams(window.location.search)
   const params = Object.fromEntries(urlSearchParams.entries())
@@ -28,7 +24,7 @@ $(() => {
   })
 })
 
-// save image locally
+// save quoteshot locally
 function capture() {
   const captureElement = document.querySelector('.quoteshot-container')
   html2canvas(captureElement)
@@ -52,7 +48,7 @@ const download = document.querySelector('#downloadButton')
 download.addEventListener('click', capture)
 
 
-// copy image to clipboard
+// copy quoteshot image to clipboard
 function copyToClipboard() {
   var domNode = document.getElementById('capture');
   domNode.classList.add("on");
