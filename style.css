@@ -73,10 +73,10 @@ body {
   appearance: none;
 }
 .customization-input .label input::after {
-  content: "Hide"
+  content: "Show"
 }
 .customization-input .label input:checked::after {
-  content: "Show"
+  content: "Hide"
 }
 .customization-input .label input { /* for Label and toggle */
   text-decoration: none;
