@@ -5,70 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UI Testing</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
-  <style type="text/css">
-    .line {
-  stroke-width: 2;
-  fill: none;
-}
-
-.axis path {
-  stroke: black;
-}
-
-.shutter {
-  transition: all 30ms ease-in;
-}
-
-.shutter.on {
-  opacity: 0.5;
-}
-
-#graph_node {
-	width: 600px;
-	border: 1px solid black;
-}
-
-.clip-graph {
-	 cursor: pointer;
-}
-
-.copy-icon {
- 	 font-size: 12px;
-	 color: black;
-	 text-align: right;
-	 float: right;
-	 margin: 10px;
-}
-    </style>
   <link rel="stylesheet" type="text/css" href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.min.js"></script>
-
+  <script src="quoteshot.js"></script>
 </head>
 <body>
   <div class="customization">
     <div class="customization-input">
       <div class="label">
         <label for="input-title">Source</label>
-        <a href="" id="toggle-title">Hide</a> <!-- ‘Show‘ or ‘Hide‘ -->
+        <a href="" id="toggle-title">Hide</a>
       </div>
       <input id="input-title" type="text" value="The Ones Who Walk Away From Omelas">
     </div>
     <div class="customization-input">
       <div class="label">
         <label for="input-author">Author</label>
-        <a href="" id="toggle-author">Hide</a> <!-- ‘Show‘ or ‘Hide‘ -->
+        <a href="" id="toggle-author">Hide</a>
       </div>
       <input id="input-author" type="text" value="Ursula K. Le Guin">
     </div>
     <div class="actions">
-      <div class="save-item" id="copy" onclick="copyImage()">
+      <div class="action-item" id="copyButton">
         <p class="icon"><i class="fa fas fa-copy"></i></p>
-        <p class="label" id="copyButton">Copy</p>
+        <p class="label">Copy</p>
       </div>
-      <div class="save-item" id="download" onclick="capture()">
+      <div class="action-item" id="downloadButton">
         <p class="icon"><i class="fa fas fa-download"></i></p>
-        <p class="label" id="downloadButton">Save</p>
+        <p class="label">Save</p>
       </div>
     </div>
   </div>
@@ -89,209 +53,29 @@
   <!-- save source URL, hidden for share links -->
   <input id="input-url" type="text" value="http://cs.virginia.edu/~robins/YouAndYourResearch.html" style="display:none;">
 
-<script type="text/javascript">
-  function capture() {
-    const captureElement = document.querySelector('#capture')
-    html2canvas(captureElement)
-      .then(canvas => {
-        canvas.style.display = 'none'
-        document.body.appendChild(canvas)
-        return canvas
-      })
-      .then(canvas => {
-        const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
-        const a = document.createElement('a')
-        const filename = 'quoteshot-' + Date.now() + '.png'
-        a.setAttribute('download', filename)
-        a.setAttribute('href', image)
-        a.click()
-        canvas.remove()
-      })
-  }
-  const download = document.querySelector('#download')
-  download.addEventListener('click', capture)
-</script>
-
-
-<script>
-  var data = [
-    {
-      name: "ABC",
-      values: [
-        {date: "2000", price: "100"},
-        {date: "2001", price: "110"},
-        {date: "2002", price: "205"},
-        {date: "2003", price: "101"}
-      ]
-    },
-    {
-      name: "DEF",
-      values: [
-        {date: "2000", price: "150"},
-        {date: "2001", price: "120"},
-        {date: "2002", price: "83"},
-        {date: "2003", price: "21"},
-      ]
-    },
-    {
-      name: "XYZ",
-      values: [
-        {date: "2000", price: "50"},
-        {date: "2001", price: "10"},
-        {date: "2002", price: "5"},
-        {date: "2003", price: "71"},
-      ]
+  <script type="text/javascript">
+    function capture() {
+      const captureElement = document.querySelector('#capture')
+      html2canvas(captureElement)
+        .then(canvas => {
+          canvas.style.display = 'none'
+          document.body.appendChild(canvas)
+          return canvas
+        })
+        .then(canvas => {
+          const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
+          const a = document.createElement('a')
+          const filename = 'quoteshot-' + Date.now() + '.png'
+          a.setAttribute('download', filename)
+          a.setAttribute('href', image)
+          a.click()
+          canvas.remove()
+        })
     }
-  ];
+    const download = document.querySelector('#downloadButton')
+    download.addEventListener('click', capture)
+  </script>
 
-  var width = 500;
-  var height = 300;
-  var margin = 50;
-  var duration = 250;
-
-  var lineOpacity = "0.25";
-  var lineOpacityHover = "0.85";
-  var otherLinesOpacityHover = "0.1";
-  var lineStroke = "1.5px";
-  var lineStrokeHover = "2.5px";
-
-  var circleOpacity = '0.85';
-  var circleOpacityOnLineHover = "0.25"
-  var circleRadius = 3;
-  var circleRadiusHover = 6;
-
-
-  /* Format Data */
-  var parseDate = d3.timeParse("%Y");
-  data.forEach(function(d) {
-    d.values.forEach(function(d) {
-      d.date = parseDate(d.date);
-      d.price = +d.price;
-    });
-  });
-
-  /* Scale */
-  var xScale = d3.scaleTime()
-    .domain(d3.extent(data[0].values, d => d.date))
-    .range([0, width-margin]);
-
-  var yScale = d3.scaleLinear()
-    .domain([0, d3.max(data[0].values, d => d.price)])
-    .range([height-margin, 0]);
-
-  var color = d3.scaleOrdinal(d3.schemeCategory10);
-
-  /* Add SVG */
-  var svg = d3.select(".container").append("svg")
-  	.attr("class", "line-graph")
-    .attr("width", (width+margin)+"px")
-    .attr("height", (height+margin)+"px")
-    .append('g')
-    .attr("transform", `translate(${margin}, ${margin})`);
-
-  /* Add line into SVG */
-  var line = d3.line()
-    .x(d => {
-  		return xScale(d.date)
-  	})
-    .y(d => yScale(d.price));
-
-  /* Add Axis into SVG */
-  var xAxis = d3.axisBottom(xScale).ticks(5);
-  var yAxis = d3.axisLeft(yScale).ticks(5);
-
-  svg.append("g")
-    .attr("class", "x axis")
-    .attr("transform", `translate(0, ${height-margin})`)
-    .call(xAxis);
-
-  svg.append("g")
-    .attr("class", "y axis")
-    .call(yAxis)
-    .append('text')
-    .attr("y", 15)
-    .attr("transform", "rotate(-90)")
-    .attr("fill", "#000")
-    .text("Total values");
-
-  // Graph title - DUPLICATED
-  svg
-  	.append("g")
-  	.append("text")
-  	.attr("x", width / 2)
-  	.attr("y", 15)
-  	.style("font-family", "Times New Roman")
-  	.style("font-size", "18")
-  	.style("text-anchor", "middle")
-  	.text("Not Duplicated - (font-family is Times New Roman)");
-
-  // Graph title - NOT DUPLICATED
-  svg
-  	.append("g")
-  	.append("text")
-  	.attr("x", width / 2)
-  	.attr("y", 60)
-  	.style("text-anchor", "middle")
-  	.style("font-size", "18")
-  	.style("font-family", "Arial")
-  	.text("Not Duplicated - (font-family is Arial)");
-
-  svg
-  	.append("g")
-  	.append("text")
-  	.attr("x", width / 2)
-  	.attr("y", 100)
-  	.style("text-anchor", "middle")
-  	.style("font-size", "18")
-  	.style("font-family", "Noto Sans")
-  	.text("Duplicated - (font-family is 'Noto Sans')");
-
-  // copy to clipboard
-  var copyIcon = document.querySelector('.copy-icon');
-  copyIcon.addEventListener("click", function(e) {
-  	e.preventDefault();
-
-  	// get the node
-  	var domNode = document.getElementById('graph_node');
-  	domNode.classList.add("on");
-
-  	// get the svg
-  	var svg = domNode.querySelector(".line-graph");
-
-  	// copy the canvas to the clipboard with chrome's CliboardItem API
-  	// https://developers.google.com/web/updates/2019/07/image-support-for-async-clipboard#images
-  	html2canvas(svg).then(function(canvas) {
-  		canvas.toBlob(function(blob) {
-  			navigator.clipboard
-  				.write([
-  				new ClipboardItem(
-  					Object.defineProperty({}, blob.type, {
-  						value: blob,
-  						enumerable: true
-  					})
-  				)
-  			])
-  				.then(function() {
-  				console.log("Copied to clipboard");
-  				domNode.classList.remove("on");
-  			});
-  		});
-  	});
-  });
-</script>
-<!-- <button class="copy-icon">Copy to Clipboard</button> -->
-
-
-<div>
-	<em>Click <strong>Copy to Clipboard</strong>, wait for the animation to finish and then simply paste the image anywhere (ctrl + v)</em>
-</div>
-<hr>
-<br><br>
-<div id="graph_node" class="container shutter">
-	<div class="clip-graph">
-		<button class="copy-icon">Copy to Clipboard</button>
-	</div>
-</div>
 
 
 <p class="footer">
@@ -302,6 +86,5 @@
 </p>
 
 </body>
-<script src="quoteshot.js"></script>
 
 </html>
