@@ -14,6 +14,13 @@ body {
   box-sizing: border-box;
   margin: 0;
 }
+* {
+  transition: 0.2s;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
 .customization {
   position: absolute;
   display: flex;
@@ -42,7 +49,7 @@ body {
   flex-direction: column;
   position: relative;
   gap: 2px;
-  margin: 1px 0 0 0;
+  margin: 0;
   width: 100%;
 }
 .customization-item {
@@ -103,6 +110,7 @@ body {
 .actions {
   display: flex;
   flex-direction: row;
+  gap: 1em;
   padding: 0;
   margin: 0;
   text-decoration: none;
@@ -110,22 +118,46 @@ body {
 .save-item {
   display: inline-flex;
   flex-direction: column;
-  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 4px;
+  gap: 5px;
   margin: 0;
 }
 .save-item p {
+  display: inline;
   margin:0;
   padding:0;
 }
+.save-item .icon {
+  font-size: 1em;
+}
+.save-item .label {
+  font-size: 0.8em;
+}
 #copy {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #000;
+}
+#copy:hover {
+  border: 1px solid #000;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+#download {
+  border: 1px solid #333;
+  background-color: #333;
+  color: #fff;
+}
+#download:hover {
   border: 1px solid #000;
   background-color: #000;
   color: #fff;
-}
-#download {
-  border: 0px solid #000;
-  background-color: #000;
-  color: #fff;
+  cursor: pointer;
 }
 .quoteshot-container {
   border: 2vh solid red;
@@ -169,6 +201,22 @@ blockquote .source {
 .source-meta, .quoteshot {
   font-size: 0.7em;
   line-height: 1.5em;
+}
+.left {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 0.8em;
+  margin: 1em;
+}
+.right {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 0.8em;
+  margin: 1em;
 }
 blockquote .source .source-meta {
   display: flex;
