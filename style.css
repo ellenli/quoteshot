@@ -68,7 +68,17 @@ body {
   font-size: 12px;
   opacity: 0.5;
 }
-.customization-input .label a { /* for Label and toggle */
+.customization-input .label input {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.customization-input .label input::after {
+  content: "Hide"
+}
+.customization-input .label input:checked::after {
+  content: "Show"
+}
+.customization-input .label input { /* for Label and toggle */
   text-decoration: none;
   position: relative;
   display: block;
@@ -79,6 +89,7 @@ body {
   font-size: 90%;
   float: right;
   right: 0;
+  cursor: pointer;
 }
 .customization-input input, .customization-input input:focus-visible {
   border: 0px solid #ccc;
