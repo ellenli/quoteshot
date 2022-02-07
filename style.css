@@ -68,6 +68,9 @@ a {
   font-size: 1em;
   display: flex;
 }
+.customization-input:focus-within {
+  border: 1px solid #000;
+}
 .customization-input .label { /* for Label and toggle */
   display: inline-flex;
   flex-direction: row;
