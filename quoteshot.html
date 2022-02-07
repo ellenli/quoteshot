@@ -26,13 +26,13 @@
       <input id="input-author" type="text" value="">
     </div>
     <div class="actions">
-      <div class="save-item" id="copy" onclick="copyImage()">
+      <div class="action-item" id="copyButton">
         <p class="icon"><i class="fa fas fa-copy"></i></p>
-        <p class="label" id="copyButton">Copy</p>
+        <p class="label">Copy</p>
       </div>
-      <div class="save-item" id="download" onclick="capture()">
+      <div class="action-item" id="downloadButton">
         <p class="icon"><i class="fa fas fa-download"></i></p>
-        <p class="label" id="downloadButton">Save</p>
+        <p class="label">Save</p>
       </div>
     </div>
   </div>
@@ -53,40 +53,6 @@
       <p class="quoteshot">Quoteshot.app</p>
     </blockquote>
   </div>
-
-<!-- save source URL, hidden for share links -->
-<input id="input-url" type="text" value="http://cs.virginia.edu/~robins/YouAndYourResearch.html" style="display:none;">
-
-
-  <!--
-  <div style="margin-top:60px;">ignore this stuff<br />
-    <input type="checkbox" id="toggle-url" checked /> <input id="input-url" type="text" value="http://cs.virginia.edu/~robins/YouAndYourResearch.html">
-    <div class="customization-item">Avatar <input type="checkbox" id="toggle-title" checked /></div>
-    <div class="customization-item">Title <input type="checkbox" id="toggle-title" checked /> <input id="input-title" type="text" value="The Ones Who Walk Away From Omelas"></div>
-    <div class="customization-item">Author <input type="checkbox" id="toggle-title" checked /> <input id="input-title" type="text" value="Ursula K. Le Guin"></div>
-  </div>
--->
-<script type="text/javascript">
-  function capture() {
-    const captureElement = document.querySelector('#capture')
-    html2canvas(captureElement)
-      .then(canvas => {
-        canvas.style.display = 'none'
-        document.body.appendChild(canvas)
-        return canvas
-      })
-      .then(canvas => {
-        const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
-        const a = document.createElement('a')
-        a.setAttribute('download', 'quoteshot-yyyy-mm-dd-hh-ss.png')
-        a.setAttribute('href', image)
-        a.click()
-        canvas.remove()
-      })
-  }
-  const download = document.querySelector('#download')
-  download.addEventListener('click', capture)
-</script>
 
 <p class="footer">
   <a href="https://quoteshot.app" target="_blank">Quoteshot.app</a>
