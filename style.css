@@ -202,21 +202,21 @@ blockquote .source {
   font-size: 0.7em;
   line-height: 1.5em;
 }
-.left {
+.left, .right {
   display: block;
   position: fixed;
   bottom: 0;
-  left: 0;
   font-size: 0.8em;
   margin: 1em;
+  font-size: 0.8em;
+  margin: 1em;
+  opacity: 0.5;
+}
+.left {
+  left: 0;
 }
 .right {
-  display: block;
-  position: fixed;
-  bottom: 0;
   right: 0;
-  font-size: 0.8em;
-  margin: 1em;
 }
 blockquote .source .source-meta {
   display: flex;
