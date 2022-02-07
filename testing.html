@@ -52,7 +52,7 @@
 
   <script type="text/javascript">
     function capture() {
-      const captureElement = document.querySelector('#capture')
+      const captureElement = document.querySelector('.quoteshot-container')
       html2canvas(captureElement)
         .then(canvas => {
           canvas.style.display = 'none'
@@ -66,7 +66,7 @@
           a.setAttribute('download', filename)
           a.setAttribute('href', image)
           a.click()
-          window.alert(filename + " downloaded")
+          window.alert(filename + " downloaded.")
           canvas.remove()
         })
     }
@@ -75,17 +75,34 @@
   </script>
 
   <script type="text/javascript">
-    function copy() {
-      const captureElement = document.querySelector('#capture')
-      html2canvas(captureElement).then(canvas => {
-        canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})]))
-      }
-      window.alert("quoteshot copied to clipboard");
-    })
-    const copy = document.querySelector('#copyButton')
-    copy.addEventListener('click', capture)
+    function copyToClipboard() {
+      var domNode = document.getElementById('capture');
+      domNode.classList.add("on");
 
-
+      // reference: https://codepen.io/karannagupta/pen/RXpddB
+      const captureElement = document.getElementById('capture');
+      html2canvas(captureElement).then(function(canvas) (
+        canvas.toBlob(function(blob) {
+      			navigator.clipboard
+      				.write([
+      				new ClipboardItem(
+      					Object.defineProperty({}, blob.type, {
+      						value: blob,
+      						enumerable: true
+      					})
+      				)
+      			])
+      				.then(function() {
+                window.alert("Quoteshot image copied to clipboard.");
+      				  domNode.classList.remove("on");
+      			});
+      		})
+        );
+      window.alert("Quoteshot image copied to clipboard.");
+      domNode.classList.remove("on");
+    }
+    const copy = document.querySelector('#copyButton');
+    copy.addEventListener('click', copyToClipboard);
   </script>
 
   <p class="footer">

@@ -123,7 +123,7 @@ a {
   width: 58px;
   height: 58px;
   border-radius: 4px;
-  gap: 5px;
+  gap: 6px;
   margin: 0;
 }
 .action-item p {
@@ -149,7 +149,7 @@ a {
   cursor: pointer;
 }
 #downloadButton {
-  border: 1px solid #333;
+  border: 1px solid #000;
   background-color: #333;
   color: #fff;
 }
@@ -175,10 +175,10 @@ a {
   z-index: 99;
 }
 .shutter {
-  transition: all 30ms ease-in;
+  transition: 0.3s;
 }
 .shutter.on {
-  opacity: 0.5;
+  opacity: 0.3;
 }
 blockquote {
   position: relative;
