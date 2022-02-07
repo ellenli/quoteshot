@@ -27,6 +27,8 @@ $(() => {
 // save quoteshot locally
 function capture() {
   const captureElement = document.getElementById('capture')
+  // captureElement.classList.add("on") // shutter on
+
   html2canvas(captureElement)
     .then(canvas => {
       canvas.style.display = 'none'
@@ -41,6 +43,7 @@ function capture() {
       a.setAttribute('href', image)
       a.click()
       window.alert(filename + " downloaded.")
+      // captureElement.classList.remove("on") // shutter off
       canvas.remove()
     })
 }
@@ -50,11 +53,11 @@ download.addEventListener('click', capture)
 
 // copy quoteshot image to clipboard
 function copyToClipboard() {
-  var domNode = document.getElementById('capture');
-  domNode.classList.add("on");
-
   // reference: https://codepen.io/karannagupta/pen/RXpddB
+
   const captureElement = document.getElementById('capture');
+  // captureElement.classList.add("on") // shutter on
+
   html2canvas(captureElement).then(function(canvas) {
     canvas.toBlob(function(blob) {
         navigator.clipboard
@@ -68,11 +71,11 @@ function copyToClipboard() {
         ])
           .then(function() {
             window.alert("Quoteshot image copied to clipboard.");
-            domNode.classList.remove("on");
+            // captureElement.classList.remove("on") // shutter off
         });
       })
   });
-  domNode.classList.remove("on");
+  // captureElement.classList.remove("on") // shutter off
 }
 const copy = document.querySelector('#copyButton');
 copy.addEventListener('click', copyToClipboard);
