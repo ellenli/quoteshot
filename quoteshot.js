@@ -12,7 +12,7 @@ $(() => {
 
     $('[data-text=' + x + ']').text(params[x] || '')
     $('#input-' + x).on("input", function() {
-      $('[data-text=' + x + ']').text(this.value)
+      $('[data-text=' + x + ']').text(this.value || 'Unknown ' + x)
     }).trigger("input")
 
     $('#toggle-' + x).change(function() {
