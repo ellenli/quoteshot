@@ -257,6 +257,11 @@ blockquote .quoteshot {
   }
 }
 @media all and (max-width: 1200px) {
+  .quoteshot-container {
+    flex: auto;
+    margin:13vh 2em 8vh 2em;
+    font-size: 4vh;
+  }
   blockquote {
     font-size: 2.5vw;
   }
