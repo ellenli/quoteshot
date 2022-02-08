@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Quoteshot",
     "short_name": "Quoteshot",
     "description": "Select text anywhere; share words everywhere. Capture quoteshots of your favorite words, excerpts, and quotes.",
