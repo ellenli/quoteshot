@@ -39,15 +39,19 @@ a {
   margin: 0;
   gap: 1em;
 }
+.fontButton {
+}
 .fontSample {
   font-size: 1.7em;
+  margin-top:-2px!important;
 }
 .customization-item {
-  display: inline-flex;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
   position: relative;
   padding: 1em;
   font-size: 1em;
+  gap: 1em;
 }
 .customization-input {
   display: inline-flex;
