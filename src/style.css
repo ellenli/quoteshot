@@ -69,7 +69,7 @@ h2 strong:last-of-type:before {
   left: 0;
   width: 100%;
   z-index:-10;
-  background-image: url('src/underline.svg');
+  background-image: url('https://quoteshot.app/src/underline.svg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -82,7 +82,7 @@ h2 strong:last-of-type:after {
   left: 0;
   width: 100%;
   z-index:-10;
-  background-image: url('src/underline.svg');
+  background-image: url('https://quoteshot.app/src/underline.svg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
