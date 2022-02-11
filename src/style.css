@@ -69,7 +69,7 @@ h2 strong:last-of-type:before {
   left: 0;
   width: 100%;
   z-index:-10;
-  background-image: url('underline.svg');
+  background-image: url('src/underline.svg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -82,7 +82,7 @@ h2 strong:last-of-type:after {
   left: 0;
   width: 100%;
   z-index:-10;
-  background-image: url('underline.svg');
+  background-image: url('src/underline.svg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -135,6 +135,12 @@ h2 strong:last-of-type:after {
   left: 0;
   margin: 3em;
 }
+.middle {
+  display: block;
+  position: fixed;
+  top: 0;
+  margin: 3em;
+}
 .right {
   display: block;
   position: fixed;
@@ -162,7 +168,7 @@ h2 strong:last-of-type:after {
   }
 }
 @media all and (max-width: 600px) {
-  .intro, .left, .right {
+  .intro, .left, .middle, .right {
     font-size: 80%;
   }
   br {
