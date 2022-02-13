@@ -36,7 +36,7 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
   }, results => {
     const [ author, selection ] = results[0].result
     const newTabReq = browser.tabs.create({
-      url: 'http://localhost:8000/quoteshot.html?' + urlencode({
+      url: 'http://quoteshot.app/quoteshot.html?' + urlencode({
         url: tab.url,
         title: tab.title,
         author: author,
