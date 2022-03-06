@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "Quoteshot",
+    "short_name": "Quoteshot",
+    "description": "Select text anywhere; share words everywhere. Capture quoteshots of your favorite words, excerpts, and quotes.",
+    "version": "1.0",
+    "homepage_url": "https://quoteshot.app",
+    "author": "Ellen Li",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "icons": {
+      "48": "icons/icon.png"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "contextMenus"
+    ]
+}

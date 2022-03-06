@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quoteshot - UI Testing</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inconsolata:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Nanum+Pen+Script&family=Reenie+Beanie&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" ></script> -->
+  <!-- <script src="quoteshot.js"></script> -->
+</head>
+<body>
+  <div class="customization">
+    <div class="customization-input">
+      <div class="label">
+        <label for="input-title">Source</label>
+        <a href="" id="toggle-title">Hide</a>
+      </div>
+      <input id="input-title" type="text" value="The Ones Who Walk Away From Omelas">
+    </div>
+    <div class="customization-input">
+      <div class="label">
+        <label for="input-author">Author</label>
+        <a href="" id="toggle-author">Hide</a>
+      </div>
+      <input id="input-author" type="text" value="Ursula K. Le Guin">
+    </div>
+    <div class="actions">
+      <div class="action-item" id="copyButton">
+        <p class="icon"><i class="fa fas fa-copy"></i></p>
+        <p class="label">Copy</p>
+      </div>
+      <div class="action-item" id="downloadButton">
+        <p class="icon"><i class="fa fas fa-download"></i></p>
+        <p class="label">Save</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    fitty('#quote'), {
+      minSize: 12,
+      maxSize: 300,
+    });
+</script>
+  <div class="quoteshot-container">
+
+  <!-- <div class="quoteshot-container" style="font-family: 'Inconsolata', monospace;"> -->
+    <!-- <div class="quoteshot-container" style="font-family: 'Inter', sans-serif;"> -->
+
+    <blockquote id="capture" class="shutter">
+      <div class="source">
+        <div class="source-meta">
+          <p id="title" data-text="title">The Ones Who Walk Away From Omelas</p>
+          <p id="author" data-text="author">Ursula K. Le Guin</p>
+        </div>
+    </div>
+      <p id="quote" data-text="quote" contenteditable="true" style="white-space: break-spaces;">Each alone, they go west or north, towards the mountains. They go on. They leave Omelas, they walk ahead into the darkness, and they do not come back. The place they go towards is a place even less imaginable to most of us than the city of happiness. I cannot describe it at all. It is possible that it does not exist. But they seem to know where they are going, the ones who walk away from Omelas.</p>
+      <p class="quoteshot">Quoteshot.app</p>
+    </blockquote>
+  </div>
+
+  <p class="footer">
+    <a href="https://quoteshot.app" target="_blank">Quoteshot.app</a>
+    <a href="https://twitter.com/quoteshotapp" target="_blank">@quoteshotapp</a>
+    <a href="mailto:quoteshotapp@gmail.com">Send Feedback</a>
+    <a href="https://chrome.google.com/webstore/detail/quoteshot/gpbgjfccolomnbmnbpkpkgncgmcgfoee" target="_blank">Leave a Review</a>
+  </p>
+
+</body>
+
+</html>
